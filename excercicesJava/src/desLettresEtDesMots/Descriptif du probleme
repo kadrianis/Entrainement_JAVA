@@ -1,0 +1,30 @@
+# Analyse de fréquence #
+
+--Contraintes :
+Le texte contient un ensemble de mots, séparés par des espaces, sans aucun signe de ponctuation.
+
+Chaque mot contient au plus 100 caractères.
+
+--Entrée :
+La première ligne contient deux entiers : nbLignes et nbMots.
+Chacune des nbLignes lignes suivantes contient nbMots mots.
+
+--Sortie :
+Pour chaque longueur de mot possible, et uniquement s’il y avait des mots de cette longueur dans le texte,
+vous devez afficher sur une ligne la longueur et le nombre de mots de cette longueur,
+séparés par un deux-points (il faut mettre un espace de chaque côté du deux-points).
+
+-- Test  :
+---
+input :
+2 7
+aet fafa gg rere papa un ouiyy
+zeze dedesza vgvy rerez yyy aaaaa ntredf
+---
+Retour attendu :
+
+2 : 2
+3 : 3
+4 : 4
+5 : 3
+7 : 2
