@@ -1,0 +1,5 @@
+# ordonner un tableau : int [] monTableau
+Arrays.sort(monTableau);
+
+# ordonner une ArrayList : Arraylist <Integer> monTableau
+Collections.sort(monTableau);
