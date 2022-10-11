@@ -10,25 +10,21 @@ public class Version1 {
         String nbLigneNbMot = sc.nextLine();
         String[] nbLigneNbMot2 = nbLigneNbMot.split(" ");
         int nbLigne = Integer.parseInt(nbLigneNbMot2[0]);
-        //int nbMot = Integer.parseInt(nbLigneNbMot2[1]);
+        //int nbMot = Integer.parseInt(nbLigneNbMot2[1]); --> j'utilise pas le deuxieme parametre
         int[] tableauDesTailles = new int[101];
         List<String> listDesLignes = new ArrayList<>();
 
 
         for (int i = 0; i < nbLigne; i++) {
-            // je stocke les lignes ajoutées dans un tableau
-            // je stocke car j'ai besoin de les rajouter toutes --> apres je les traite
+            // mettre les lignes ecrite dans un tableau
             listDesLignes.add(sc.nextLine());
         }
 
 
         for (int j = 0; j < nbLigne; j++) {
-            // mettres les mots d'une phrase dans un tableau .. ne peut etre visible de l'exterieur
             String[] lesMotsDePhrase = listDesLignes.get(j).split(" ");
             for (int k = 0; k < lesMotsDePhrase.length; k++) {
-                // lesMotsDePhrase.length == nb mots
-                // rajout au tableau des statistiques :: resultat
-                tableauDesTailles[lesMotsDePhrase[k].length()] = tableauDesTailles[lesMotsDePhrase[k].length()] + 1;
+                tableauDesTailles[lesMotsDePhrase[k].length()] += 1;
             }
         }
 
