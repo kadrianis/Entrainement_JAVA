@@ -18,3 +18,8 @@ input :
 ---
 Retour attendu :
 2
+
+###################### Notes #######################
+-question  : le cas pour la meme distance
+- version 02 : travailler sur un algo qui cherche dans des nombres negatif et positif
+- version 03 :le plus proche chiffre de -3
