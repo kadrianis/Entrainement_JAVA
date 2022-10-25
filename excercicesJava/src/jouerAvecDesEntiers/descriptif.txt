@@ -1,0 +1,8 @@
+dans ce package on manipules des algo qui ont pour but d'excuter des opération sur des entiers.
+
+# division :  division entiere de deux entiers
+# multiplication : mutiplication de deux entiers
+# nbChiffreEntier : renvoie le nombre de digite qui constituent un entier donné
+# Modulo : renvoie le modulo de deux entier
+# SommeDigits : ça renvoie la somme des digits constituant un entier
+# trierEntier : ça propose de trier 3 entiers
