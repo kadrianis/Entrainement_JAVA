@@ -1,0 +1,25 @@
+# Analyse de fréquence #
+
+--Contraintes :
+Le texte contient un ensemble de mots, séparés par des espaces, sans aucun signe de ponctuation.
+
+Chaque mot contient au plus 100 caractères.
+
+--Entrée :
+tableau d'entier
+
+--Sortie :
+un entier
+
+-- Test  :
+---
+input :
+[2,7,-4,7,9,10,44]
+---
+Retour attendu :
+2
+
+###################### Notes #######################
+-question  : le cas pour la meme distance
+- version 02 : travailler sur un algo qui cherche dans des nombres negatif et positif
+- version 03 :le plus proche chiffre de -3
