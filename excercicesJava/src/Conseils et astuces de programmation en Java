@@ -13,3 +13,7 @@ Integer.MAX_VALUE;
 Integer.MIN_VALUE;
 -2147483648 ou  -2puissance(-31)
 
+
+
+# avoir le int a partir d'un char: Character.getNumericValue(char)
+
