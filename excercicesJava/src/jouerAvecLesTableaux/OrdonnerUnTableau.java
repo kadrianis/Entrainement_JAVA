@@ -20,9 +20,24 @@ public class OrdonnerUnTableau {
         return arr;
     }
 
+    public static boolean estOrdonne(int[] tab) {
+        // attention au tab.length-1 et non pas tab.length
+        int i = 0;
+        for (i = 0; i < tab.length - 1; i++) {
+            if (tab[i] >= tab[i + 1])
+                break;
+        }
+        if (i != tab.length - 1)
+            return true;
+        return false;
+    }
+
+
     public static void main(String[] args) {
-        int[]monTab = {1,5,7,8,4,1,2,3,6,1,1,1,2,5,4,8,9,7,4};
+        int[] monTab = {1, 5, 7, 8, 4, 1, 2, 3, 6, 1, 1, 1, 2, 5, 4, 8, 9, 7, 4};
         int[]monTabOrdonne= OdronnerTab(monTab);
         System.out.println(Arrays.toString(monTabOrdonne));
+        System.out.println(estOrdonne(monTabOrdonne));
+
     }
 }
