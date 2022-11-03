@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="github.bdeneuter.lejos.ev3.api" type="repository">
+    <properties maven-id="com.github.bdeneuter:lejos-ev3-api:0.9.1-beta" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/bdeneuter/lejos-ev3-api/0.9.1-beta/lejos-ev3-api-0.9.1-beta.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/bdeneuter/dbus-java/2.7/dbus-java-2.7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/bdeneuter/cx.ath.matthew/0.8/cx.ath.matthew-0.8.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/java/dev/jna/jna/3.2.7/jna-3.2.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

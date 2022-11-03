@@ -1,6 +1,7 @@
 package jouerAvecLesTableaux;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class OperationStaticsSurTab {
 
@@ -26,8 +27,20 @@ public class OperationStaticsSurTab {
         System.out.println(Arrays.toString(random));
     }
 
+    public static void incrementation() {
+        Scanner sc = new Scanner(System.in);
+        int a, b = 0;
+        a = 10;
+        while (b < 15) {
+            b = a++;
+            System.out.println(b);
+        }
+
+    }
+
     public static void main(String[] args) {
-        remplirTableauAvecDesRandom();
+        //remplirTableauAvecDesRandom();
+        incrementation();
     }
 
 }
