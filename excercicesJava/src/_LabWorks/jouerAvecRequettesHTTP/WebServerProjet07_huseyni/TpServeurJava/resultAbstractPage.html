@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Result | Seach Engine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- page styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nosifer&family=Skranji&display=swap');
+
+        /* pour le corps de la page */
+
+        body {
+            /*padding: 0;
+      margin: 0;*/
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            color: whitesmoke;
+            background-color: rgb(43, 42, 43);
+            /*max-width: 950px;
+      max-height: max-content;*/
+        }
+
+
+        div {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            /*permet d'éviter que les marges internes n'augmentent la taille des calques. Cela facile le contrôle des dimensions.*/
+        }
+
+        #container {
+            font-family: 'Poppins', sans-serif;
+            color: whitesmoke;
+            background-color: rgb(43, 42, 43);
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            padding-bottom: 100px;
+            overflow: hidden;
+        }
+
+        #outer {
+            /*background: yellow;*/
+            margin: 0px auto;
+            width: 100%;
+            height: 100%;
+        }
+
+        #header {
+            /*background: blue;*/
+            width: 100%;
+            height: 64px;
+            
+        }
+
+        #inner {
+            /*background: rgb(216, 121, 13);*/
+            margin: 0px;
+            min-width: 480px;
+            height: 100%;
+            /*padding: 0 0 0 0;*/
+            text-align: center;
+        }
+
+        #firstpane {
+            position: relative;
+            top: 0;
+            left: 0;
+            /*background: rgb(43, 113, 92);*/
+            display:inline-flex;
+            width: 70%;
+            /*49.5%;*/
+            height: 10%;
+            min-width: 120px;
+            text-align: left;
+        }
+
+        #secondpane {
+            position: relative;
+            left: 0;
+            top: 0;
+            background: rgb(241, 240, 240);
+            display: inline-block;
+            width: 50%;
+            /*49.5%;*/
+            height: 75%;
+            /*margin: 0px;
+            min-width: 100px;*/
+            overflow-y: auto;
+            text-align: left;
+        }
+
+
+        /* Pour le header*/
+        header #logo {
+            position: relative;
+            top: 10px;
+            left: 20%;
+            text-align: center;
+            font-family: 'Skranji', cursive;
+            /*font-size: 47px; */
+
+            text-shadow: 3px 2px 500px;
+
+
+        }
+
+        /*pour la barre de recherche*/
+        
+        .search-input-container {
+         position: relative;
+         left: 25%;
+         height: auto;
+         width: 71%;
+         top: 25px;
+      }
+
+        /*   for suggestion box */
+        .search-input-container .search-input {
+            background: rgba(87, 76, 76, 0.961);
+            width: 70%;
+            border-radius: 5px;
+            position: relative;
+            box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
+        }
+
+        /* for input box */
+        .search-input input {
+            height: 35px;
+            width: 100%;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            padding: 0 60px 0 20px;
+            font-size: 15px;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .search-input.active input {
+            border-radius: 5px 5px 0 0;
+        }
+
+        .search-input .autocom-box {
+
+            padding: 0;
+            opacity: 0;
+            pointer-events: all;
+            max-height: 280px;
+            overflow-y: auto;
+        }
+
+        .search-input.active .autocom-box {
+            position: absolute;
+            padding: 10px 8px;
+            background-color: rgb(76, 69, 69);
+            opacity: 1;
+            pointer-events: auto;
+            z-index: 1;
+            width: 100%;
+            /*97.5%;*/
+        }
+
+        .autocom-box li {
+            list-style: none;
+            padding: 8px 12px;
+            display: none;
+            width: 96%;
+            cursor: default;
+            border-radius: 3px;
+        }
+
+        .search-input.active .autocom-box li {
+            display: block;
+        }
+
+       /* for active input box shadow */
+      .search-input input:hover,
+      .search-input input:focus {
+         -webk-webkit-box-shadow: -8px 10px 29px 18px rgb(7, 95, 196);
+         -moz-box-shadow: -8px -10px 29px 18px rgb(7, 95, 196);
+         box-shadow: 0px 0px 7px 7px rgb(7, 95, 196);
+         border: none;
+
+      }
+
+        /* for mouse on suggestion box */
+        .autocom-box li:hover {
+            /*background: #efefef;*/
+            background: #3a3f43;
+        }
+
+        /* for search icon */
+        .search-input .icon {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            height: 55px;
+            width: 55px;
+            text-align: center;
+            line-height: 35px;
+            font-size: 20px;
+            color: #0d9cea;
+            cursor: pointer;
+        }
+
+        /*pour les resultats*/
+
+        li a {
+            color: rgb(38, 132, 203);
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 16px;
+
+        }
+
+        li a:focus,
+        li a:hover {
+            text-decoration: underline;
+            color: red;
+
+        }
+
+        li {
+            list-style: none;
+            padding: 8px 12px;
+            display: block;
+            width: 100%;
+            cursor: default;
+            border-radius: 3px;
+            
+
+        }
+
+        li img,li svg {
+            position: relative;
+            top: 7px;
+            height: 30px;
+            width: 30px;
+        }
+
+        span {
+            color: red;
+        }
+        #back-icon{
+            height: 30px;
+            width: 30px;
+            position: relative;
+            left: 150px;
+            top: 15px;
+        }
+        #search-title{
+            position: relative;
+            left: 30%;
+        }
+        #footer {
+            /*background-color: blueviolet;
+            font-family: 'Nosifer', cursive;*/
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            height: 100%;
+            padding-left: 10%;
+
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+    <div id="container">
+        <div id="outer">
+            <!-- page's contents start -->
+            <div id="header">
+                <div class="search-input-container">
+                    <!--<h1 id="logo">Search Engine&nbsp;<span><i class="fas fa-search"></i></span></h1>-->
+                    <div class="search-input">
+                        <form autocomplete="off" id="myform" method="get">
+                            <!-- input box -->
+                            <label for="search"></label>
+                            <input id="search" type="search" name="search" placeholder="Type file or directory name...">
+                            <input type="submit" hidden>
+                        </form>
+                        <div onclick="beFocus(), functionSubmit()" class="autocom-box">
+                            <!-- suggestion list is insert here -->
+                        </div>
+                        <div class="icon"><i onclick="functionSubmit()" class="fas fa-search"></i></div>
+                        <!-- searching bar end -->
+                    </div>
+                </div>
+            </div>
+            <div id="inner">
+                <div id="firstpane">
+                </div>
+
+                <div id="secondpane">
+                    <div class="result-container">
+                            <!-- results-->
+                        <ul>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- page's contents end -->
+
+        </div>
+        <div id="footer">Made by Ousty for fun &#128515</div>
+    </div>
+
+    <!-- javascript code -->
+    <script>
+        window.onload = beFocus();
+        function beFocus() {
+            document.getElementById("search").focus();
+        }
+        function functionSubmit() {
+            document.getElementById("myform").submit();
+        }
+    </script>
+
+    <script>
+        let suggestions = [
+        ];
+
+
+        // getting all required elements
+        const searchInput = document.querySelector(".search-input");
+        const inputBox = searchInput.querySelector("input");
+        const suggestionBox = searchInput.querySelector(".autocom-box");
+        const icon = searchInput.querySelector(".icon");
+        let linkForSendData = searchInput.querySelector("a");
+        let webLink;
+
+
+        // event managing
+
+        // if user press any key and release
+
+        inputBox.onkeyup = (e) => {
+            let userData = e.target.value; //user enetered data
+            let emptyArray = [];
+            if (userData) {
+                emptyArray = suggestions.filter((data) => {
+                    //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
+                    return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
+                });
+                emptyArray = emptyArray.map((data) => {
+                    // passing return data inside li tag
+                    return data = `<li>${data}</li>`;
+                });
+                searchInput.classList.add("active"); //show autocomplete box
+                showSuggestions(emptyArray);
+                let allList = suggestionBox.querySelectorAll("li");
+                for (let i = 0; i < allList.length; i++) {
+                    //adding onclick attribute in all li tag
+                    allList[i].setAttribute("onclick", "select(this)");
+                    // adding on up or down
+
+                }
+            } else {
+                searchInput.classList.remove("active"); //hide autocomplete box
+            }
+        }
+
+        function select(element) {
+            let selectData = element.textContent;
+            inputBox.value = selectData;
+            searchInput.classList.remove("active");
+        }
+
+        function showSuggestions(list) {
+            let listData;
+            if (!list.length) {
+                userValue = inputBox.value;
+                listData = `<li>${userValue}</li>`;
+            } else {
+                listData = list.join('');
+            }
+            suggestionBox.innerHTML = listData;
+        }
+
+    </script>
+
+</body>
+
+</html>

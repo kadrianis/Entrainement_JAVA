@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+   <meta charset="utf-8">
+   <title>Home | Seach Engine</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- page styles -->
+   <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Nosifer&family=Skranji&display=swap');
+
+      /* pour le corps de la page */
+
+      body {
+         /*padding: 0;
+      margin: 0;*/
+         box-sizing: border-box;
+         font-family: 'Poppins', sans-serif;
+         color: whitesmoke;
+         background-color: rgb(43, 42, 43);
+         /*max-width: 950px;
+      max-height: max-content;*/
+      }
+
+
+      div {
+         -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+         box-sizing: border-box;
+         /*permet d'éviter que les marges internes n'augmentent la taille des calques. Cela facile le contrôle des dimensions.*/
+      }
+
+      #container {
+         /*font-family: 'Poppins', sans-serif;
+         color: whitesmoke;
+         background-color: rgb(43, 42, 43);*/
+         position: absolute;
+         top: 0;
+         left: 0;
+         height: 100%;
+         width: 100%;
+         padding-bottom: 100px;
+         overflow: hidden;
+      }
+
+      #outer {
+         /*background: yellow;*/
+         margin: 0px auto;
+         width: 100%;
+         height: 100%;
+      }
+
+      #header {
+         /*background: blue;*/
+         width: 100%;
+         height: 64px;
+      }
+
+      #inner {
+         /*background: rgb(71, 123, 96);*/
+         margin: 0px;
+         min-width: 480px;
+         height: 100%;
+         padding: 0 0 64px 0;
+         text-align: center;
+      }
+
+      #firstpane,
+      #secondpane {
+         /*background: rgb(113, 43, 43);*/
+         display: inline-block;
+         width: 70%;
+         /*49.5%;*/
+         height: 100%;
+         margin: 0px;
+         min-width: 120px;
+         overflow: hidden;
+         text-align: left;
+      }
+
+
+      .search-input-container {
+         position: relative;
+         top: 0%;
+         left: 22%;
+      }
+
+      #logo {
+         position: relative;
+         top: 0%;
+         left: 8%;
+         font-family: 'Skranji', cursive;
+         font-size: 47px;
+         color: rgb(7, 95, 196);
+      }
+
+      .search-input {
+         /*background: rgb(22, 173, 206);*/
+         width: 55%;
+         border-radius: 5px;
+         /*position: relative;
+      top: 30px;
+      left: 45%;*/
+         box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
+      }
+
+      .search-input input {
+
+         position: absolute;
+         height: 50px;
+         width: 55%;
+         outline: none;
+         border: none;
+         border-radius: 5px;
+         padding: 0 60px 0 20px;
+         font-size: 21px;
+         box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-input.active input {
+         border-radius: 5px 5px 0 0;
+      }
+
+      /* for active input box shadow */
+      .search-input input:hover,
+      .search-input input:focus {
+         -webk-webkit-box-shadow: -8px 10px 29px 18px rgb(7, 95, 196);
+         -moz-box-shadow: -8px -10px 29px 18px rgb(7, 95, 196);
+         box-shadow: 0px 0px 7px 7px rgb(7, 95, 196);
+         border: none;
+
+      }
+
+
+      .search-input .autocom-box {
+         /*position: relative;
+      top: 0px;*/
+         padding: 0;
+         opacity: 0;
+         pointer-events: all;
+         max-height: 280px;
+         overflow: auto;
+      }
+
+      .search-input.active .autocom-box {
+         position: absolute;
+         top: 240%;
+         padding: 10px 8px;
+         opacity: 1;
+         pointer-events: auto;
+         background-color: rgb(70, 70, 70);
+         z-index: 1;
+         width: 55%;
+      }
+
+      .autocom-box li {
+         font-size: 15px;
+         list-style: none;
+         padding: 8px 12px;
+         display: none;
+         width: 55%;
+         cursor: default;
+         border-radius: 3px;
+      }
+
+      .search-input.active .autocom-box li {
+         display: block;
+      }
+
+      .autocom-box li:hover {
+         background: rgba(107, 189, 252, 0.605);
+         /*rgb(58, 147, 215);*/
+         width: 96%;
+      }
+
+      .search-input .icon {
+         position: absolute;
+         left: 50%;
+         top: 94px;
+         height: 55px;
+         width: 55%;
+         /*text-align: center;*/
+         line-height: 60px;
+         font-size: 40px;
+         color: rgb(7, 95, 196);
+         cursor: pointer;
+      }
+
+      span {
+         color: whitesmoke;
+      }
+
+      #footer {
+         /*background-color: blueviolet;
+         font-family: 'Nosifer',cursive;*/
+         font-family: 'Poppins', sans-serif;
+         font-size: 20px;
+         height: 100%;
+         padding-left: 10%;
+
+      }
+   </style>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+   <div id="container">
+      <div id="outer">
+         <div id="header">
+
+         </div>
+         <div id="inner">
+            <div id="firstpane">
+
+               <!-- page's contents start -->
+
+               <div class="search-input-container">
+                  <h1 id="logo">Search Engine&nbsp;<span><i class="fas fa-search"></i></span></h1>
+                  <div class="search-input">
+
+                     <!-- where input data is send by js -->
+                     <!-- <a href="" target="_blank" hidden></a>-->
+
+                     <form autocomplete="off" id="myform" method="get">
+
+                        <!-- input box -->
+                        <label for="search"></label>
+                        <input id="search" type="search" name="search" placeholder="Type file or directory name...">
+                        <input type="submit" hidden>
+                     </form>
+
+                     <div onclick="beFocus(), functionSubmit()" class="autocom-box">
+                        <!-- suggestion list is insert here -->
+                     </div>
+
+                     <div class="icon"><i onclick="functionSubmit()" class="fas fa-search"></i></div>
+                     <!-- searching bar end -->
+
+                  </div>
+
+               </div>
+            </div>
+
+            <!-- page's contents end -->
+         </div>
+
+      </div>
+      <div id="footer">Made by Ousty for fun &#128515</div>
+   </div>
+
+   <!-- javascript code -->
+   <script>
+      window.onload = beFocus();
+      function beFocus() {
+         document.getElementById("search").focus();
+      }
+      function functionSubmit() {
+         document.getElementById("myform").submit();
+      }
+   </script>
+
+   <script>
+      let suggestions = [
+      ];
+
+  
+      // getting all required elements
+      const searchInput = document.querySelector(".search-input");
+      const inputBox = searchInput.querySelector("input");
+      const suggestionBox = searchInput.querySelector(".autocom-box");
+      const icon = searchInput.querySelector(".icon");
+      let linkForSendData = searchInput.querySelector("a");
+      let webLink;
+
+
+      // event managing
+
+      // if user press any key and release
+
+      inputBox.onkeyup = (e) => {
+         let userData = e.target.value; //user enetered data
+         let emptyArray = [];
+         if (userData) {
+            //icon.onclick = ()=>{}
+            /*   webLink = `file:///home/ousseini/Desktop/Programmation%20JAVA/TpMiniServeurJava/header.html?search=${userData}`;
+               //linkForSendData.setAttribute("href", webLink);
+               //linkForSendData.click(); 
+               
+           }*/
+            emptyArray = suggestions.filter((data) => {
+               //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
+               return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
+            });
+            emptyArray = emptyArray.map((data) => {
+               // passing return data inside li tag
+               return data = `<li>${data}</li>`;
+            });
+            searchInput.classList.add("active"); //show autocomplete box
+            showSuggestions(emptyArray);
+            let allList = suggestionBox.querySelectorAll("li");
+            for (let i = 0; i < allList.length; i++) {
+               //adding onclick attribute in all li tag
+               allList[i].setAttribute("onclick", "select(this)");
+               // adding on up or down
+
+            }
+         } else {
+            searchInput.classList.remove("active"); //hide autocomplete box
+         }
+      }
+
+      function select(element) {
+         let selectData = element.textContent;
+         inputBox.value = selectData;
+         //icon.onclick = ()=>{}
+         //'<input type= submit'>
+         //webLink = `file:///home/ousseini/Desktop/Programmation%20JAVA/TpMiniServeurJava/header.html?search=${userData}`;
+         //linkForSendData.setAttribute("href", webLink);
+         //linkForSendData.click();
+
+         searchInput.classList.remove("active");
+      }
+
+      function showSuggestions(list) {
+         let listData;
+         if (!list.length) {
+            userValue = inputBox.value;
+            listData = `<li>${userValue}</li>`;
+         } else {
+            listData = list.join('');
+         }
+         suggestionBox.innerHTML = listData;
+      }
+
+   </script>
+
+</body>
+
+</html>

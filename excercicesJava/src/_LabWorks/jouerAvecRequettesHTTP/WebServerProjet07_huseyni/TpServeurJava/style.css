@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+body{
+    font-family: 'Arimo', 'sans-serif';
+    margin: 0;
+    padding: 0;
+    /*background: url() ;
+    background-size: cover; */ 
+}
+/* Debut Partie header*/
+header{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px 20px;
+}
+header .left{
+    display: flex;
+    flex-wrap: wrap;
+}
+header p{
+    margin-right: 10px;
+    color: #787878;
+    cursor: pointer;
+}
+header p:hover{
+    color: black;
+}
+
+/* fin partie header */
+
+/* Debut partie Principale */
+/*.main{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin-top: 100px;
+  }
+  */
+  img{
+      margin: 0 0 10px;
+      padding: 0;
+      font-size: 24px;
+      
+  }
+  .box{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 500px;
+      transform: translate(-50%,-50%);
+  }
+  input{
+      position: relative;
+      display: inline-block;
+      font-size: 20px;
+      box-sizing: border-box;
+      transition: .5s;
+  }
+  
+  input[type="search"]{
+      background: #fff;
+      width: 340px;
+      height: 50px;
+      border: none;
+      outline: none;
+      padding: 0 25px;
+      border-radius: 25px 0 0 25px;
+  }
+
+  input[type="submit"]{
+      position: relative;
+      left: -5px;
+      border-radius: 0 25px 25px 0;
+      width: 150px;
+      height: 50px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background: #ffc107;
+      color: #fff;
+  }
+  input[type="submit"]:hover{
+      background: #787878;
+
+
+
+
+
+
+
+  /*
+  .main .form-group{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+  .main .form-group input{
+    margin-top: 20px;
+    padding:15px;
+    border-radius: 50px;
+    border:1px solid #d1d1d1;
+    outline:none;
+    width: 100%;
+  }
+  .main .form-group input:hover, .main .form-group input:focus{
+    -webk-webkit-box-shadow: -8px -1px 19px -8px rgba(184,184,184,1);
+    -moz-box-shadow: -8px -1px 19px -8px rgba(184,184,184,1);
+    box-shadow: -8px -1px 19px -8px rgba(184,184,184,1);
+    border:none;
+  }
+  
+  .main .buttons{
+    margin-top: 40px;
+  }
+  .main .buttons button{
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border:none; 
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor:pointer;
+    color: #4d4d4d;
+    outline:none;
+  }
+
+/*Fin partie principale */
