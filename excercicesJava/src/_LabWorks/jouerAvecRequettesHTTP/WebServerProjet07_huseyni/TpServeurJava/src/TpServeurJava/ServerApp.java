@@ -1,4 +1,4 @@
-package TpServeurJava;
+package _LabWorks.jouerAvecRequettesHTTP.WebServerProjet07_huseyni.TpServeurJava.src.TpServeurJava;
 
 import java.awt.EventQueue;
 
